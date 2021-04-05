@@ -1,0 +1,63 @@
+def AStar(Graph, AdjMatrix, start, end):
+    # Menentukan jarak dari masing-masing node ke node akhir
+    for i in range(len(Graph.nodeArray)):
+        distance = Graph.euclideanDistance(Graph.nodeArray[i], end)
+        Graph.nodeArray[i].setEuclidean(distance)
+    # Testing
+    print("euclidean : ")
+    for i in range(len(Graph.nodeArray)):
+        print(Graph.nodeArray[i].euclidean)
+    # Inisialiasi priority queue, hasil, dan daftar node yang sudah
+    # dikunjungi
+    queue = []
+    result = []
+    visitedName = []
+    queue.append(start)
+    while(queue != []):
+        temp = queue.pop(0)
+        visitedName.append(temp.name)
+        result.append(temp)
+        neighbor = G.getNeighbor(temp, AdjMatrix)
+        if (temp.name == end.name):
+            return result
+        else:
+            for i in range(len(neighbor)):
+                duplicate = False
+                for j in range(len(queue)):
+                    if (neighbor[i].name == queue[j].name):
+                        duplicate = True
+                if (duplicate == False):
+                    # checkpoint
+                    if (neighbor[i].name not in visitedName):
+                        addToQueue = neighbor[i]
+                        addToQueue.setWeight(
+                            temp.weight +
+                            G.euclideanDistance(temp, neighbor[i]))
+                        print(
+                            "nama : ",
+                            neighbor[i].name,
+                            "weight : ",
+                            addToQueue.weight)
+                        queue.append(addToQueue)
+                        visitedName.append(neighbor[i].name)
+                else:
+                    for j in range(len(queue)):
+                        if (neighbor[i].name == queue[j].name):
+                            if (neighbor[i].weight < queue[j].weight):
+                                queue[j].weight = neighbor[i].weight
+                                print(
+                                    "update weight : ",
+                                    queue[j].name,
+                                    "new weight : ",
+                                    queue[j].weight)
+            queue = sorted(
+                queue,
+                key=lambda x:
+                x.weight + x.euclidean)
+            print("iterasi : ")
+            for i in range(len(queue)):
+                print(
+                    queue[i].name,
+                    "heuristik : ",
+                    queue[i].weight +
+                    queue[i].euclidean)
