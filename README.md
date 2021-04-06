@@ -21,6 +21,8 @@ Setelah itu, Install library gmaps pada Anaconda prompt <br>
 conda install -c conda-forge gmaps
 ```
 
+Apibla map tidak muncul saat menjalankan notebook, dapat mengunjungi laman https://jupyter-gmaps.readthedocs.io/en/latest/install.html untuk panduan instalasi gmaps yang lebih detail <br>
+
 ## Usage
 
 Masukkan file map dengan ekstensi .txt <br>
