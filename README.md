@@ -13,9 +13,9 @@ gmaps library
 
 ## Installation
 
-Anaconda dapat didownload pada laman https://www.anaconda.com/products/individual
-Kemudian install Jupyter Notebook melalui Anaconda
-Setelah itu, Install library gmaps pada Anaconda prompt
+Anaconda dapat didownload pada laman https://www.anaconda.com/products/individual <br>
+Kemudian install Jupyter Notebook melalui Anaconda <br>
+Setelah itu, Install library gmaps pada Anaconda prompt <br>
 
 ```bash
 conda install -c conda-forge gmaps
@@ -23,22 +23,22 @@ conda install -c conda-forge gmaps
 
 ## Usage
 
-Masukkan file map dengan ekstensi .txt
-Format file sebagai berikut :
-Baris pertama diisi sebuah bilangan integer N yang menandakan banyaknya nodes yang ingin diinput
-Baris 2 sampai N+1 diisi dengan Nama node dan koordinat dipisahkan dengan spasi (nama_node x y)
-Baris N+1 sampai 2N+1 diisi dengan adjecency matrix dengan format setiap baris dan kolom dipisahkan dengan spasi
-Untuk lebih jelasnya dapat dilihat file - file yang sudah disediakan pada folder test
+Masukkan file map dengan ekstensi .txt <br>
+Format file sebagai berikut : <br>
+Baris pertama diisi sebuah bilangan integer N yang menandakan banyaknya nodes yang ingin diinput <br>
+Baris 2 sampai N+1 diisi dengan Nama node dan koordinat dipisahkan dengan spasi (nama_node x y) <br>
+Baris N+1 sampai 2N+1 diisi dengan adjecency matrix dengan format setiap baris dan kolom dipisahkan dengan spasi <br>
+Untuk lebih jelasnya dapat dilihat file - file yang sudah disediakan pada folder test <br> <br>
 
-Buka folder src
-Di dalam folder src akan ada file Graph.ipynb dan Gmap.ipynb.
-Jika ingin menampilkan Graph saja gunakan Graph.ipynb dan gunakan Gmap.ipynb jika ingin menampilkan peta
-Jalankan setiap cell pada kedua file
-Pada cell di bawah markdown input, perlu melakukan input yang diminta kemudian menekan enter. setelah itu jalankan cell berikutnya
-Program akan menampilkan gambar Graph/Map sesuai input
+Buka folder src <br>
+Di dalam folder src akan ada file Graph.ipynb dan Gmap.ipynb. <br>
+Jika ingin menampilkan Graph saja gunakan Graph.ipynb dan gunakan Gmap.ipynb jika ingin menampilkan peta <br>
+Jalankan setiap cell pada kedua file <br>
+Pada cell di bawah markdown input, perlu melakukan input yang diminta kemudian menekan enter. setelah itu jalankan cell berikutnya <br>
+Program akan menampilkan gambar Graph/Map sesuai input <br>
 
 ## Author
 
-id Line :
-helkiayeremia2
-jordandj500
+id Line : <br>
+helkiayeremia2 <br>
+jordandj500 <br>
