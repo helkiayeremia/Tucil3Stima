@@ -1,4 +1,4 @@
-import math
+from math import radians, cos, sin, asin, sqrt
 
 
 class Node:
@@ -28,9 +28,19 @@ class Graph:
         self.nodeArray.append(node)
 
     def euclideanDistance(self, node, goal):
-        distance = math.sqrt(
+        distance = sqrt(
             (node.x - goal.x)**2 + (node.y - goal.y)**2)
         return distance
+
+    def haversine(self, node, goal):
+        R = 6372.8
+        dLat = radians(goal.x - node.x)
+        dLon = radians(goal.y - node.y)
+        lat1 = radians(node.x)
+        lat2 = radians(goal.x)
+        a = sin(dLat / 2)**2 + cos(lat1) * cos(lat2) * sin(dLon / 2)**2
+        c = 2 * asin(sqrt(a))
+        return R * c
 
     def getNodeIdx(self, node):
         for i in range(len(self.nodeArray)):
@@ -113,13 +123,59 @@ def AStar(G, M, start, end):
         return []
 
 
-G, M = baca_file("test3.txt")
-start = G.nodeArray[0]
-end = G.nodeArray[6]
-path = AStar(G, M, start, end)
-if path == []:
-    print("Tidak ada jalur")
-else:
-    print("hasil : ")
-    for i in range(len(path)):
-        print(path[i].name)
+def makeMarkerLocations(nama_file):
+    hasilRead = []
+    f = open(nama_file, "r")
+    for line in f:
+        hasilRead.append(line.strip("\n"))
+    f.close()
+    N = int(hasilRead[0])
+    marker_locations = []
+    # Memasukkan simpul-simpul di graf
+    for i in range(1, N + 1):
+        temp = hasilRead[i].split(" ")
+        marker_locations.append((float(temp[1]), float(temp[2])))
+    return marker_locations
+
+
+def makeMarkerName(nama_file):
+    hasilRead = []
+    f = open(nama_file, "r")
+    for line in f:
+        hasilRead.append(line.strip("\n"))
+    f.close()
+    N = int(hasilRead[0])
+    marker_name = []
+    # Memasukkan simpul-simpul di graf
+    for i in range(1, N + 1):
+        temp = hasilRead[i].split(" ")
+        marker_name.append(temp[0])
+    return marker_name
+
+
+def makeGraph(marker_locations, marker_name):
+    G = Graph()
+    # Memasukkan simpul-simpul di graf
+    for i in range(len(marker_locations)):
+        G.addNode(
+            Node(
+                marker_name[i],
+                marker_locations[i][0],
+                marker_locations[i][1]))
+    return G
+
+
+def makeAdjMatrix(nama_file):
+    hasilRead = []
+    f = open(nama_file, "r")
+    for line in f:
+        hasilRead.append(line.strip("\n"))
+    f.close()
+    M = []
+    N = int(hasilRead[0])
+    for i in range(N + 1, 2 * N + 1):
+        temp = hasilRead[i].split(" ")
+        for j in range(len(temp)):
+            temp[j] = int(temp[j])
+        M.append(temp)
+    return M
